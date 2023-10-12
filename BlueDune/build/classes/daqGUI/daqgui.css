@@ -1,0 +1,17 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+
+.custom-chart .chart-scatter-symbol {
+    -fx-stroke: yellowgreen;
+    -fx-background-radius: 2px;
+}
+
+.custom-chart .chart-symbol {    
+    -fx-background-color: blue;
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 2px;
+    -fx-padding: 2px;
+}
+

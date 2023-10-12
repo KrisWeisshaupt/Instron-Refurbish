@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="524.0" prefWidth="692.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="settingsGUI.SettingsGUIController">
+   <children>
+      <Separator layoutX="344.0" orientation="VERTICAL" prefHeight="305.0" prefWidth="4.0" AnchorPane.topAnchor="0.0" />
+      <Separator layoutX="-2.0" layoutY="296.0" prefHeight="17.0" prefWidth="682.0" AnchorPane.bottomAnchor="211.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="2.0" />
+      <VBox alignment="TOP_CENTER" layoutX="89.0" layoutY="319.0" prefHeight="183.0" prefWidth="512.0" spacing="5.0">
+         <children>
+            <Label contentDisplay="CENTER" text="Device" textAlignment="CENTER" underline="true">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label text="Device Datarate Sampling Period (ms)        (shared amongst all bridges)" />
+            <TextField fx:id="deviceRateField" editable="false" text="48" />
+            <Label text="Polling Period (ms) " />
+            <TextField fx:id="pollingRateField" text="100" />
+            <Button fx:id="applyButton" mnemonicParsing="false" onAction="#applySettingsPressed" text="APPLY SETTINGS">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <GridPane alignment="TOP_RIGHT" layoutX="357.0" prefHeight="291.0" prefWidth="325.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <children>
+            <Label contentDisplay="CENTER" text="Displacement" textAlignment="CENTER" underline="true" GridPane.columnSpan="2" GridPane.halignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Slider fx:id="displacementGainsSlider" blockIncrement="1.0" majorTickUnit="1.0" max="5.0" minorTickCount="0" showTickMarks="true" snapToTicks="true" GridPane.columnSpan="2" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" />
+               </GridPane.margin>
+            </Slider>
+            <HBox alignment="CENTER" prefHeight="25.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <children>
+                  <Label text="Gain:" />
+                  <Label text="GainValue">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <Label text="Calibration Displacements" GridPane.rowIndex="3" />
+            <Label text="Analog Reading (mv/V)" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="displacementCal1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="displacementRead1" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="displacementCal2" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="displacementReading2" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </TextField>
+            <Button fx:id="displacementFitButton" mnemonicParsing="false" onAction="#displacementFitPressed" text="Generate Linear Fit" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <GridPane.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </GridPane.margin>
+            </Button>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.rowIndex="6">
+               <children>
+                  <Label text="Unit:" />
+                  <TextField fx:id="displacementUnit" prefHeight="25.0" prefWidth="48.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="2.0" GridPane.columnSpan="2" GridPane.rowIndex="7">
+               <children>
+                  <Label text="Displacement = " />
+                  <TextField fx:id="displacementSlopeField" minWidth="70.0" prefWidth="70.0" text="1" />
+                  <Label text="× Analog +" />
+                  <TextField fx:id="displacementOffsetField" prefWidth="70.0" text="0" />
+               </children>
+            </HBox>
+         </children>
+         <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="160.0" minWidth="160.0" prefWidth="160.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="160.0" minWidth="160.0" prefWidth="160.0" />
+         </columnConstraints>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <rowConstraints>
+            <RowConstraints maxHeight="76.28571428571429" minHeight="30.0" percentHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="63.0" minHeight="30.0" percentHeight="0.0" prefHeight="38.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="57.0" minHeight="29.0" percentHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="26.0" minHeight="22.0" percentHeight="0.0" prefHeight="26.0" vgrow="SOMETIMES" />
+            <RowConstraints percentHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints percentHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="25.0" minHeight="10.0" percentHeight="0.0" prefHeight="25.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="42.0" minHeight="40.0" percentHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+      <GridPane prefHeight="291.0" prefWidth="319.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="5.0">
+         <children>
+            <Label contentDisplay="CENTER" text="Force" textAlignment="CENTER" underline="true" GridPane.columnSpan="2" GridPane.halignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Slider fx:id="forceGainSlider" blockIncrement="1.0" majorTickUnit="1.0" max="5.0" minorTickCount="0" showTickMarks="true" snapToTicks="true" value="5.0" GridPane.columnSpan="2" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" />
+               </GridPane.margin>
+            </Slider>
+            <HBox alignment="CENTER" prefHeight="25.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <children>
+                  <Label text="Gain:" />
+                  <Label text="GainValue">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <Label text="Calibration Forces" GridPane.rowIndex="3" />
+            <Label text="Analog Reading (mv/V)" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="forceCal1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="forceRead1" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="forceCal2" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="forceRead2" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </TextField>
+            <Button fx:id="forceFitButton" mnemonicParsing="false" onAction="#forrceFitPressed" text="Generate Linear Fit" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <GridPane.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </GridPane.margin>
+            </Button>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.rowIndex="6">
+               <children>
+                  <Label text="Unit:" />
+                  <TextField fx:id="forceUnit" prefHeight="25.0" prefWidth="48.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="2.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+               <children>
+                  <Label text="Force = " />
+                  <TextField fx:id="forceSlopeField" minWidth="70.0" prefWidth="70.0" text="1" />
+                  <Label text="× Analog +" />
+                  <TextField fx:id="forceOffsetField" prefWidth="70.0" text="0" />
+               </children>
+            </HBox>
+         </children>
+         <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="160.0" minWidth="160.0" prefWidth="160.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="160.0" minWidth="160.0" prefWidth="160.0" />
+         </columnConstraints>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <rowConstraints>
+            <RowConstraints maxHeight="76.28571428571429" minHeight="30.0" percentHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="63.0" minHeight="30.0" percentHeight="0.0" prefHeight="38.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="57.0" minHeight="29.0" percentHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="26.0" minHeight="22.0" percentHeight="0.0" prefHeight="26.0" vgrow="SOMETIMES" />
+            <RowConstraints percentHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints percentHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="25.0" minHeight="10.0" percentHeight="0.0" prefHeight="25.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="42.0" minHeight="40.0" percentHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+   </children>
+</AnchorPane>
